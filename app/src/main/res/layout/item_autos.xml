@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvAutoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/avenirnextltprobold"
+        android:text="00"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvModelo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        android:text="Modelo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAutoId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvAutoId"
+        app:layout_constraintTop_toTopOf="@+id/tvAutoId" />
+
+    <TextView
+        android:id="@+id/tvMarca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Marca"
+        app:layout_constraintStart_toStartOf="@+id/tvModelo"
+        app:layout_constraintTop_toBottomOf="@+id/tvModelo" />
+
+    <TextView
+        android:id="@+id/tvPlaca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Placa"
+        app:layout_constraintStart_toStartOf="@+id/tvMarca"
+        app:layout_constraintTop_toBottomOf="@+id/tvMarca" />
+
+    <TextView
+        android:id="@+id/tvPropietario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Propietario"
+        app:layout_constraintStart_toStartOf="@+id/tvPlaca"
+        app:layout_constraintTop_toBottomOf="@+id/tvPlaca" />
+</androidx.constraintlayout.widget.ConstraintLayout>
