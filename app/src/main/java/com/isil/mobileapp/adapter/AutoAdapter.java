@@ -38,9 +38,9 @@ public class AutoAdapter extends RecyclerView.Adapter<AutoAdapter.AutoViewHolder
     public void onBindViewHolder(@NonNull AutoAdapter.AutoViewHolder holder, int position) {
         holder.itemId.setText(autolist.get(position).getIdAuto());
         holder.itemMarca.setText(autolist.get(position).getMarca());
-        holder.itemModelo.setText(autolist.get(position).getModelo());
-        holder.itemPlaca.setText(autolist.get(position).getPlaca());
-        holder.itemPropietario.setText(autolist.get(position).getPropietario());
+        holder.itemModelo.setText("Modelo: "+autolist.get(position).getModelo());
+        holder.itemPlaca.setText("Placa: "+autolist.get(position).getPlaca());
+        holder.itemPropietario.setText("Propietario: "+autolist.get(position).getPropietario());
     }
 
     @Override

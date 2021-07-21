@@ -13,7 +13,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.isil.mobileapp.R;
 import com.isil.mobileapp.adapter.AutoAdapter;
 import com.isil.mobileapp.datos.DatosSQLite;
@@ -23,12 +26,18 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class BusquedaFragment extends Fragment {
+public class BusquedaFragment extends Fragment implements View.OnClickListener{
 
     RecyclerView mlvBusqueda;
     RecyclerView autoRecycler;
     AutoAdapter autoAdapter;
+    Button mbtnBuscar;
+
+
+    TextInputEditText mtetPlaca;
+    List<Auto> autoList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,11 +52,19 @@ public class BusquedaFragment extends Fragment {
         mlvBusqueda = view.findViewById(R.id.lvBusqueda);
         leerDatos();
 
+
+        // boton para registrar
+        mbtnBuscar = view.findViewById(R.id.btnBuscar);
+        mbtnBuscar.setOnClickListener(this);
+
+        // inputs
+
+        mtetPlaca = view.findViewById(R.id.tetPlaca);
+
+
     }
 
     private void leerDatos() {
-
-        List<Auto> autoList = new ArrayList<>();
 
         DatosSQLite datosSQLite = new DatosSQLite(getActivity());
         Cursor cursor = datosSQLite.mostrarTodo(datosSQLite);
@@ -78,6 +95,33 @@ public class BusquedaFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         autoRecycler.setLayoutManager(layoutManager);
         autoAdapter = new AutoAdapter(getContext(), autoList);
+        autoRecycler.setAdapter(autoAdapter);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnBuscar:
+                buscarPorPlaca();
+                break;
+        }
+    }
+
+    private void buscarPorPlaca() {
+        // obtener dato
+        String placa = mtetPlaca.getText().toString();
+
+
+        autoRecycler = mlvBusqueda;
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        autoRecycler.setLayoutManager(layoutManager);
+        List<Auto> finalList = autoList.stream().filter(x -> x.getPlaca().contains(placa)).collect(Collectors.toList());
+        autoAdapter = new AutoAdapter(getContext(), finalList);
+
+        if(finalList.size() == 0){
+            Toast.makeText(getActivity(), "No se encontraron resultados", Toast.LENGTH_LONG).show();
+        }
+
         autoRecycler.setAdapter(autoAdapter);
     }
 }

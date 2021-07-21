@@ -26,7 +26,6 @@ public class RegistroFragment extends Fragment implements View.OnClickListener{
 
     TextInputEditText mtetMarca, mtetModelo, mtetPlaca, mtetPropietario;
     Button mbtnRegistrar;
-    List<Auto> autoList = new ArrayList<>();
 
 
     @Override
