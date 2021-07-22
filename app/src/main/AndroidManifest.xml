@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp">
+        <activity android:name=".VideoActivity"></activity>
         <activity
             android:name=".OperacionesActivity"
             android:label="@string/title_activity_operaciones"
-            android:theme="@style/Theme.MobileApp.NoActionBar"></activity>
+            android:theme="@style/Theme.MobileApp.NoActionBar" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.MobileApp.NoActionBar">
@@ -22,9 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".DibujoActivity"></activity>
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".DibujoActivity" />
     </application>
 
 </manifest>

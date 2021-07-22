@@ -43,6 +43,8 @@ public class AreaDibujo extends View {
 
             canvas.drawCircle(p.x, p.y, 100, drawPaints.get(i++));
         }
+
+
     }
 
     @Override
