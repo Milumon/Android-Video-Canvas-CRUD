@@ -1,11 +1,13 @@
 package com.isil.mobileapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,22 +23,32 @@ public class AreaDibujo extends View {
     // setup initial color
     private final int paintColor = Color.BLACK;
     // defines paint and canvas
+
     private Paint drawPaint;
+    private Paint drawPaintWhite;
+    private Boolean isDrawed;
 
     private List<Point> circlePoints;
     private List<Paint> drawPaints;
+
 
 
     public AreaDibujo(Context context, AttributeSet attrs) {
         super(context, attrs);
         circlePoints = new ArrayList<Point>();
         drawPaints = new ArrayList<Paint>();
+        isDrawed = false;
 
     }
 
 
     @Override
     protected void onDraw(Canvas canvas) {
+
+        if (isDrawed){
+            canvas.drawColor(Color.WHITE);
+            isDrawed = false;
+        }
 
         int i = 0;
         for (Point p : circlePoints) {
