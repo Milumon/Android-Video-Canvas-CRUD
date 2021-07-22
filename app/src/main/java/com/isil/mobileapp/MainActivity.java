@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, OperacionesActivity.class));
                 break;
             case R.id.btnDibujo:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, DibujoActivity.class));
                 break;
             case R.id.btnJuegos:
                 startActivity(new Intent(this, MainActivity.class));
