@@ -8,13 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class DibujoActivity extends Activity implements View.OnClickListener {
 
     // ConstraintLayout canvasAlphabets;
 
     Button mbtnLimpiar;
-    AreaDibujo areaDibujo;
+    // AreaDibujo areaDibujo;
 
 
     @Override
@@ -23,7 +24,7 @@ public class DibujoActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_dibujo);
         mbtnLimpiar = findViewById(R.id.btnLimpiar);
         // areaDibujo = new AreaDibujo(this, null);
-
+        // areaDibujo = findViewById(R.id.AreaDibujo);
 
         // canvasAlphabets = findViewById(R.id.mey);
         // canvasAlphabets.addView(areaDibujo);
@@ -36,6 +37,8 @@ public class DibujoActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         finish();
+        overridePendingTransition( 0, 0);
         startActivity(getIntent());
+        overridePendingTransition( 0, 0);
     }
 }
