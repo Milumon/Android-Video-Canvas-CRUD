@@ -14,7 +14,7 @@ public class DibujoActivity extends Activity implements View.OnClickListener {
     // ConstraintLayout canvasAlphabets;
 
     Button mbtnLimpiar;
-    AreaDibujo areaDibujo;
+    // AreaDibujo areaDibujo;
 
 
     @Override
@@ -22,7 +22,7 @@ public class DibujoActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dibujo);
         mbtnLimpiar = findViewById(R.id.btnLimpiar);
-        areaDibujo = new AreaDibujo(this, null);
+        // areaDibujo = new AreaDibujo(this, null);
 
 
         //canvasAlphabets = findViewById(R.id.mey);

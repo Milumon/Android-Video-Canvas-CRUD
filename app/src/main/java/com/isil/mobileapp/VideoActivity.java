@@ -11,25 +11,23 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 public class VideoActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener {
-
     VideoView mvvMuestra;
     private int mCurrentPosition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_video);
         MediaController controller = new MediaController(this);
         controller.setMediaPlayer(mvvMuestra);
-
         mCurrentPosition = 5000;
 
 
 
 
-        mvvMuestra = findViewById(R.id.videoViewR);
+        mvvMuestra = findViewById(R.id.vvMuestra);
 
         Uri uri = Uri.parse("android.resource://" + getPackageName() +
-                "/raw/videodemo" );
+                "/raw/demo" );
         mvvMuestra.setVideoURI(uri);
         mvvMuestra.setMediaController(controller);
         if (mCurrentPosition > 0) {
